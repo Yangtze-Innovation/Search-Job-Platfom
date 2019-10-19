@@ -1,0 +1,12 @@
+log4j.rootLogger=INFO, stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n
+log4j.appender.logfile=org.apache.log4j.FileAppender
+log4j.appender.logfile.File=target/spring.log
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.logfile.layout.ConversionPattern=%d %p [%c] - %m%n
+\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014
+\u7248\u6743\u58F0\u660E\uFF1A\u672C\u6587\u4E3ACSDN\u535A\u4E3B\u300C\u5F3A\u54E5\u5E26\u4F60\u98DE\u300D\u7684\u539F\u521B\u6587\u7AE0\uFF0C\u9075\u5FAA CC 4.0 BY-SA \u7248\u6743\u534F\u8BAE\uFF0C\u8F6C\u8F7D\u8BF7\u9644\u4E0A\u539F\u6587\u51FA\u5904\u94FE\u63A5\u53CA\u672C\u58F0\u660E\u3002
+\u539F\u6587\u94FE\u63A5\uFF1Ahttps://blog.csdn.net/qq_39696269/article/details/80551901
