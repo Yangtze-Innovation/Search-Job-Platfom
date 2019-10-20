@@ -7,27 +7,31 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
+/**
+ * ç®€å•ç¤ºä¾‹
+ * @author 52423
+ *
+ */
 public class JsoupParseDemo {
 
 	public static void main(String[] args) {
 		List<String> titles = new ArrayList<String>();
 	    List<String> urls = new ArrayList<String>();
 
-	    //¼ÙÉèÎÒÃÇ»ñÈ¡µÄHTMLµÄ×Ö·ûÄÚÈİÈçÏÂ
-	    String html = "<html><div id=\"blog_list\"><div class=\"blog_title\"> <a href=\"url1\">µÚÒ»Æª²©¿Í</a></div><div class=\"blog_title\"><a href=\"url2\">µÚ¶şÆª²©¿Í</a></div><div class=\"blog_title\"><a href=\"url3\">µÚÈıÆª²©¿Í</a></div></div></html>";
+	    //å‡è®¾æˆ‘ä»¬è·å–çš„HTMLçš„å­—ç¬¦å†…å®¹å¦‚ä¸‹
+	    String html = "<html><div id=\"blog_list\"><div class=\"blog_title\"> <a href=\"url1\">ç¬¬ä¸€ç¯‡åšå®¢</a></div><div class=\"blog_title\"><a href=\"url2\">ç¬¬äºŒç¯‡åšå®¢</a></div><div class=\"blog_title\"><a href=\"url3\">ç¬¬ä¸‰ç¯‡åšå®¢</a></div></div></html>";
 
-	    //µÚÒ»²½£¬½«×Ö·ûÄÚÈİ½âÎö³ÉÒ»¸öDocumentÀà
+	    //ç¬¬ä¸€æ­¥ï¼Œå°†å­—ç¬¦å†…å®¹è§£ææˆä¸€ä¸ªDocumentç±»
 	    Document doc = Jsoup.parse(html);
 
-	    //µÚ¶ş²½£¬¸ù¾İÎÒÃÇĞèÒªµÃµ½µÄ±êÇ©£¬Ñ¡ÔñÌáÈ¡ÏàÓ¦±êÇ©µÄÄÚÈİ
+	    //ç¬¬äºŒæ­¥ï¼Œæ ¹æ®æˆ‘ä»¬éœ€è¦å¾—åˆ°çš„æ ‡ç­¾ï¼Œé€‰æ‹©æå–ç›¸åº”æ ‡ç­¾çš„å†…å®¹
 	    Elements elements = doc.select("div[id=blog_list]").select("div[class=blog_title]");
 	    for( Element element : elements ){
 	      String title = element.text();
 	      titles.add(title);
 	      urls.add(element.select("a").attr("href"));
 	    }
-	    //Êä³ö²âÊÔ
+	    //è¾“å‡ºæµ‹è¯•
 	    for( String title : titles ){
 	      System.out.println(title);
 	    }

@@ -1,3 +1,5 @@
+package com.couragehe.commons;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
