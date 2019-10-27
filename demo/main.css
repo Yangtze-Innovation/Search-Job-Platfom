@@ -1,0 +1,234 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0;          padding:0; } 
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+address, cite, dfn, em, var { font-style:normal; } 
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; } 
+small{ font-size:12px; } 
+ul, ol { list-style:none; } 
+a { text-decoration:none; color: #fff;} 
+a:hover { text-decoration:underline; } 
+sup { vertical-align:text-top; } 
+sub{ vertical-align:text-bottom; } 
+legend { color:#000; } 
+fieldset, img { border:0; } 
+button, input, select, textarea { font-size:100%; } 
+table { border-collapse:collapse; border-spacing:0; } 
+
+
+
+
+div.header{
+    width: 100%;
+    height: 50px;
+    background-color: #0090CE;
+}
+div.header ul{
+    width: 100%;
+}
+div.header ul li{
+    display: inline-block;
+    width: 19%;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    
+}
+
+div.header ul li a:hover{
+   text-decoration: none;
+   color:greenyellow;
+}
+div.header ul li a:visited{
+    color: #fff;
+}
+div.header ul li:nth-child(1){
+    font-size: 28px;
+    font-family: '微软雅黑';
+    text-align: right;
+}
+
+div.header ul li:nth-child(2){
+    text-align:center;
+    font-size: 20px;
+}
+
+div.header ul li:nth-child(3){
+    text-align: right;
+}
+
+div.header ul li:nth-child(4){
+    text-align: right;
+}
+
+
+div.search{
+    background-color: #F2F5F4;
+    height: 160px;
+    padding-top: 50px;
+    /* width: 80%; */
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: cneter;
+}
+div.search input{
+    width: 760px;
+    height: 50px;
+    border: 1px solid #424242; 
+    padding-left: 10px;
+    font-size: 18px;
+}
+div.search button{
+    width: 130px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent; 
+    outline: none;   
+    margin-left: -4px;
+    background-color: #317EF3;
+    font-size: 18px;
+    color: #fff;
+}
+div.search div{
+    width: 920px;
+    margin: 0 auto;
+}
+
+div.search i.iconfont{
+    margin-left: -28px;
+    font-size: 24px;
+}
+
+div.search div.sub{
+    margin-top: 8px;
+    color: #A190B5;
+}
+
+div.search div.sub ul li{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    text-align: center;
+}
+div.search div.sub ul li a{
+    color: #A190B5;
+}
+div.search div.sub ul li:hover{
+    background-color: khaki;
+}
+div.search div.sub ul li:nth-child(1):hover{
+    background-color: #fff;
+}
+
+div.shaixuan{
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 80%;
+    background-color: #F2F5F4;
+}
+
+div.shaixuan ul .item li{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    width: 80px;
+    text-align: center;
+}
+div.shaixuan ul .item li a{
+    color: #424242;
+}
+div.shaixuan ul .item li:hover{
+    background-color: #A190B5;
+}
+div.shaixuan ul .item li:nth-child(1):hover{
+    background-color: #F2F5F4;
+}
+
+.active{
+    background-color:#A190B5;
+}
+
+div.shaixuan ul .item li:nth-child(1){
+    font-weight: bold;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.content{
+    width: 80%;
+    background-color:#fff;
+    margin: 30px auto;
+   
+    
+}
+
+div.content .part{
+    margin-top: 20px;
+    margin-left: 60px;
+    display: inline-block;
+    border-radius: 20px;
+    width: 26%;
+    padding: 15px;
+    background-color:  #F2F5F4;
+    position: relative;
+}
+div.content .part:hover{
+    box-shadow: 0 0 20px #b2b48f;
+}
+div.content .part a{
+    color: #424242;
+     
+}
+div.content .part a:hover{
+    text-decoration: none; 
+}
+div.content .p1{
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    font-weight: bold;
+}
+div.content .p2{
+    display: inline-block;
+    text-align: center;
+    width: 80px;
+    height: 22px;
+    color: #A190B5;
+    cursor: pointer;
+}
+
+div.content .p3{
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+}
+
+div.content .p4{
+    display: block;
+    padding-top: 10px;
+    color: #A190B5;
+}
+
+div.content .hr{
+    width: 80%;
+    height: 0;
+    border-bottom: 1px solid #424242;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.p22{
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    padding: 20px;
+}
