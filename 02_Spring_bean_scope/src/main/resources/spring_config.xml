@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 
+           scope="singleton" ,这样类会在Spring容器启动时，被创建被保存在Spring框架SingletonList。
+                                                                 在每次用户调用getBean方法索要时，此时只会返回同一个实例对象
+          scope="prototype",这样类不会在Spring容器启动时在每次用户调用getBean方法索要时，此时返回
+                                                               全新实例对象
+     -->
+    <bean id="teacher" class="com.kaikeba.beans.Teacher" scope="prototype">
+           <property name="tname" value="Mr liu"></property>
+    </bean>
+    
+
+</beans>
