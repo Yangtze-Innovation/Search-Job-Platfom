@@ -19,7 +19,7 @@ public class DBUtils {
 	private static String url;
 	private static int maxActive;
 	private static int initialSize;
-	
+	private static  BasicDataSource dataSource;
 	static {
 		Properties config = new Properties();
 		InputStream in =  DBUtils.class.getClassLoader().getResourceAsStream("db.properties");
@@ -32,7 +32,13 @@ public class DBUtils {
 			password = config.getProperty("jdbc.password");
 			maxActive = Integer.parseInt(config.getProperty("maxActive"));
 			initialSize = Integer.parseInt(config.getProperty("initialSize"));
-			System.out.println(username);
+			dataSource = new BasicDataSource();
+			dataSource.setUsername(username);
+			dataSource.setPassword(password);
+			dataSource.setUrl(url);
+			dataSource.setDriverClassName(driver);
+			dataSource.setMaxActive(maxActive);
+			dataSource.setInitialSize(initialSize);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -40,13 +46,6 @@ public class DBUtils {
 	public static Connection getConnection() {
 		Connection connection = null;
 		try {
-			BasicDataSource dataSource = new BasicDataSource();
-			dataSource.setUsername(username);
-			dataSource.setPassword(password);
-			dataSource.setUrl(url);
-			dataSource.setDriverClassName(driver);
-			dataSource.setMaxActive(maxActive);
-			dataSource.setInitialSize(initialSize);
 			connection = dataSource.getConnection();
 			return connection;
 		} catch (SQLException e) {

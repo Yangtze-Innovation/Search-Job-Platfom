@@ -31,38 +31,7 @@ public class JobDetailPageProcessor implements PageProcessor {
 			.addHeader("Accept","text/html, application/xhtml+xml, application/xml; q=0.9, */*; q=0.8")
 			.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134");
 	public void process(Page page) {
-		Html html = page.getHtml();
-		//达到第三层 详情页
-		JobInfo job = new JobInfo();
-		job.setId(UUIDUtils.getUUID64());
-//		CSS选择器
-		job.setJobname(html.$("h1.name","text").get());
-		job.setSalary(html.$("span.ceil-salary","text").toString());
 		
-		//地址解析，去除所有标签
-		String address = Jsoup.clean(html.$("div[class=work_addr]").toString(), Whitelist.none());
-		job.setCompanyaddress(address);
-		
-		//JSoup解析器
-		Document doc = Jsoup.parse(html.toString());
-		job.setCity(doc.select("dd[class=job_request] h3 span").get(1).text().replaceAll("/",""));
-		job.setExperience(doc.select("dd[class=job_request] h3 span").get(2).text().replaceAll("/",""));
-		job.setEducation(doc.select("dd[class=job_request] h3 span").get(3).text().replaceAll("/",""));
-		
-		//xpath解析器
-		job.setCompanylablelist(html.xpath("//dd[@class='job-advantage']/p/text()").toString());
-		job.setCompanyname(html.xpath("//h3[@class=\"fl\"]/em/text()").toString());
-		
-		//时间进行截取
-		String time = html.xpath("//p[@class=\"publish_time\"]/text()").toString();
-		job.setCreatetime(time.substring(0,5));
-		job.setUrl(page.getRequest().getUrl());
-		job.setDetail(html.xpath("dd[@class=\"job_bt\"]").toString());
-		job.setWebsite("拉勾");
-		
-		if(job.getJobname()!=null) {
-			JobPositionDao.addJobData(job);
-		}
 	}
 
 	public Site getSite() {

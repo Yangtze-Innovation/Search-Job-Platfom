@@ -1,9 +1,25 @@
 package com.couragehe.test;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import org.apache.http.Header;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.lucene.analysis.CharArrayMap.EntrySet;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.junit.Test;
+//import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import com.couragehe.util.ConnPoolUtils;
@@ -12,9 +28,9 @@ import com.mysql.jdbc.Driver;
 
 import us.codecraft.webmagic.selector.Html;
 
-public class Test {
+public class TestSpider {
 	
-	@org.junit.Test
+	@Test
 	public void Test1() {
 		System.out.println(ConnPoolUtils.getInstance().toString());
 		MyConn conn = null;
@@ -29,7 +45,7 @@ public class Test {
 		//将连接对象 释放至连接池
 		ConnPoolUtils.getInstance().setFree(conn);
 	}
-	@org.junit.Test
+	@Test
 	public void Test2() {
 		String str = "1天前  发布于拉勾网" ;
 		System.out.println(str.substring(0,str.indexOf("发")-1));
@@ -72,4 +88,14 @@ public class Test {
 		}
 		System.out.println(ConnPoolUtils.getInstance());
 	}
+	@Test
+	public void Test5() {
+		String url = "https://www.lagou.com";
+		 if(url.indexOf("positionAjax") != -1){
+			 System.out.println("里面");
+	     }else {
+	      System.out.println("外面");  	
+	      }
+	}
+	
 }

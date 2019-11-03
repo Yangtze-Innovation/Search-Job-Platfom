@@ -96,7 +96,7 @@
 
  &emsp; &emsp; 在jsp/Servlet编程中的response.sendRedirect方法就是i使用HTTP协议中的重定向机制。它与JSP中的<jsp:forward>的区别在于后者是在服务器中实现页面的跳转，也就是说应用容器加载了索要跳转的页面内容并返回给客户端。而前者是返回一个状态码，这些状态码可能值见下表， 然后客户端读取需要跳转到的页面的URL并重新加载新的页面。就是这样一个过程，所以我们编程的时候就要通过HttpMethod.getStatusCode()方法判断返回值是否为下表中的某个值来判断是否需要跳转。如果已经确认需要进行页面跳转了，那么可以通过读取HTTP头中的location属性来获取新的地址。
 
-![1.1重定向状态码.png](../../images/1.1重定向状态码.png)
+![1.1重定向状态码.png](../../Resource/images/1.1重定向状态码.png)
 
 ```java
 HttpClient client = new HttpClient();
@@ -134,13 +134,13 @@ HttpClient client = new HttpClient();
 
 &emsp;&emsp;图为分析登陆表单得到的action地址，就是将登陆账号密码提交的地址，一般是提交到服务器验证成功之后，设置客户端cookie并产生重定向。
 
-![1.1登陆表单分析](../../images/1.1登陆表单分析.png)
+![1.1登陆表单分析](../../Resource/images/1.1登陆表单分析.png)
 
 #### 3.2 分析登陆重定向
 
 &emsp;&emsp;该网络请求为重定向后的请求，获取了uid等cookie得到服务器的认可。
 
-![1.2登陆重定向分析](../../images/1.1登陆重定向分析.png)
+![1.2登陆重定向分析](../../Resource/images/1.1登陆重定向分析.png)
 
 #### 3.3 Java源码
 

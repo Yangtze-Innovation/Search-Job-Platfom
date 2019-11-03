@@ -15,7 +15,7 @@ public class Controller {
 			.addPipeline(new JobCollectSavePipeline() )
 			.thread(3)
 			.run();
-		
+		//执行完毕 关闭所有的浏览器对象
 		ConnPoolUtils.getInstance().closeAllDriver();
 	}
 		

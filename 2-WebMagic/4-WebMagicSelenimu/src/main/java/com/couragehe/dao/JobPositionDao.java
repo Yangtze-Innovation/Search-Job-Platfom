@@ -11,7 +11,7 @@ public class JobPositionDao {
 	public static long count=0;
 	public static void addJobData(JobInfo job) {
 		Connection conn = DBUtils.getConnection();
-		String sql = "INSERT INTO job_data VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO job_data2 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -43,4 +43,8 @@ public class JobPositionDao {
 		System.out.println("执行完毕");
 		addJobData(job);
 	}
+	public void save(JobInfo jobInfo) {
+		
+	}
+	
 }

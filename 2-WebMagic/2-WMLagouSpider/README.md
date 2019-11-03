@@ -22,6 +22,12 @@ https://blog.csdn.net/just4you/article/details/61197834
 
 https://www.jianshu.com/p/7c476c6c0b68
 
-![拉勾网搜索地址并设置Cookie](../../images/2.2拉勾网搜索地址并设置Cookie.png)
+![拉勾网搜索地址并设置Cookie](../../Resource/images/2.2拉勾网搜索地址并设置Cookie.png)
 
-![拉勾网工作岗位请求](../../images/2.2拉勾网工作岗位请求.png)
+![拉勾网工作岗位请求](../../Resource/images/2.2拉勾网工作岗位请求.png)
+
+参考：https://segmentfault.com/a/1190000008843861
+
+参考：https://www.xttblog.com/?p=1304
+
+参考：https://www.iteye.com/blog/mercymessi-2250161

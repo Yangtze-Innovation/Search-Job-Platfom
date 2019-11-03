@@ -2,8 +2,32 @@ package com.couragehe.entity;
 
 import java.sql.Date;
 
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldIndex;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
+/**
+ * 实体类添加注解
+ * indexName: 索引名称(必须小写)
+ * type: 文档的类型
+ * @Id: 索引库的id
+ * index: 是否进行分词	analyzed:分词	 not_analyzed:不分词  no:不根据此字段进行检索
+ * store: 是否存储
+ * analyzer: 指定使用的分词器
+ * type: 存储数据的类型
+ * searchAnalyzer: queryStringQuery就是查询条件进行分词的分词器.
+ * @author 52423
+ *
+ */
+@Document(indexName ="searchjob",type="jobdata")
 public class JobInfo {
-	private String id; 			 
+	@Id
+	@Field(index = true,store = true,type = FieldType.text)
+	private String id; 		
+	@Field(index = true,analyzer = "ik_smart",searchAnalyzer = "ik_smart",store = true,type = FieldType.text)
 	private String jobname; 					 
 	private String salary;					 
 	private String city;						 
@@ -14,6 +38,7 @@ public class JobInfo {
 	private String companyaddress; 		  	 
 	private String createtime;
 	private String url;                   		
+	@Field(index = true,analyzer = "ik_smart",searchAnalyzer = "ik_smart",store = true,type = FieldType.text)
 	private String detail;
 	private String website;
 	public String getId() {

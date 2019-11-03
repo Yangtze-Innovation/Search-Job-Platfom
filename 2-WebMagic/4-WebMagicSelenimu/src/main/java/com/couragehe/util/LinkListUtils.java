@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -21,16 +22,16 @@ public class LinkListUtils {
 		for(String url: linklist) {
 			set.add(url);
 		}
-		writeLinkList();
+		writeLinkList(set);
 	}
 	
-	private static void writeLinkList() {
+	public  static void writeLinkList(Collection<String> coll) {
 		File file = new File( "link.txt");
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(file);
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-			for(String url : set) {
+			for(String url : coll) {
 				bw.write(url);
 				bw.newLine();
 			}

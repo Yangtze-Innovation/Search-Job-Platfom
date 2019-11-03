@@ -6,7 +6,7 @@
 
 &emsp;&emsp;Spider则将这几个组件组织起来，让它们可以互相交互，流程化的执行，可以认为Spider是一个大的容器，它也是WebMagic逻辑的核心。
 
-![WebMagic ](../../images/2.1WebMagic.png)
+![WebMagic ](../../Resource/images/2.1WebMagic.png)
 
 #### WebMagic的四个组件
 

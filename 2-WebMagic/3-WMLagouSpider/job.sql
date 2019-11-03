@@ -1,6 +1,6 @@
 CREATE DATABASE search_job;
 use search_job
-CREATE table job_data(
+CREATE table job_data2(
 				id  VARCHAR(64)  PRIMARY KEY, 			 #主键 索引
 				jobname  VARCHAR(30), 					 #查询的工作名称（相关度）
 				salary    VARCHAR(15),					 #工作薪资范围
@@ -10,7 +10,7 @@ CREATE table job_data(
 				companylablelist  VARCHAR(60), 	  		 #公司标签列表 五险一金和其他说明信息
 				companyname  VARCHAR(30),  			     #公司名
 				companyaddress  VARCHAR(80), 		  	 #公司地址信息
-				createtime VARCHAR(10),					 #工作发布时间  也可使用datetime
+				createtime VARCHAR(20),					 #工作发布时间  也可使用datetime
 				url       VARCHAR(80),                   #跳转具体招聘信息的链接		
 				detail text,							 #招聘详细信息
 				website varchar(10)						 #所属网站

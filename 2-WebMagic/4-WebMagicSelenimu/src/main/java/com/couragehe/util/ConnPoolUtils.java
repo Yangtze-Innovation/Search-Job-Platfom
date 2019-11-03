@@ -34,7 +34,7 @@ public class ConnPoolUtils extends HttpClientDownloader{
 	private List<MyConn> freeConns = new ArrayList<MyConn>();
 	private List<MyConn> busyConns = new ArrayList<MyConn>();
 	
-	private int max=4;
+	private int max=6;
 	private int min=2;
 	private int current=0;
 	

@@ -24,7 +24,6 @@ class Login {
     static String email = "524235428@qq.com";//你的email
     static String psw = "123456";//你的密码
     // 消息发送的action
-    String url = "http://www.kaixin001.com/home/";
 
     public static void getUrlContent()
             throws Exception {
@@ -42,8 +41,8 @@ class Login {
         login.addRequestHeader("Content-Type",
                 "application/x-www-form-urlencoded; charset=UTF-8");
 
-        NameValuePair Email = new NameValuePair("loginemail", email);// 邮箱
-        NameValuePair password = new NameValuePair("password", psw);// 密码
+	        NameValuePair Email = new NameValuePair("loginemail", email);// 邮箱
+	        NameValuePair password = new NameValuePair("password", psw);// 密码
         // NameValuePair code = new NameValuePair( "code"
         // ,"????");//有时候需要验证码，暂时未解决
 
