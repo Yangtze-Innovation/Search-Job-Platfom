@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 
-import com.couragehe.dao.JobPositionDao;
+import com.couragehe.dao.JobInfoDao;
 import com.couragehe.entity.JobInfo;
 import com.couragehe.spider.website.LagouSpider;
 import com.couragehe.util.BloomUtils;

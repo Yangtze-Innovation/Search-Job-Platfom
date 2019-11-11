@@ -47,6 +47,10 @@ public class Item {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", jobname=" + jobname + ", content=" + content + "]";
+	}
 	
 
 	

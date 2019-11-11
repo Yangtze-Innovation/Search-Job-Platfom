@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,6 +23,7 @@ public class TestSearch {
 	private JobService jobService;
 	@Autowired
 	private ElasticsearchTemplate elasticsearchTemplate;
+	
 	@Before
 	public void init() {
 		
@@ -74,6 +76,46 @@ public class TestSearch {
 		//批量保存
 		this.jobService.saveAll(list);
 	}
+	//查询所有数据
+	@Test
+	public void testFindAll() {
+		Iterable<Item> items = this.jobService.findAll();
+		for(Item item:items) {
+			System.out.println(item);
+		}
+	}
+	//分页查询数据
+	@Test 
+	public void testFindByPage() {
+		Page<Item> items = this.jobService.findByPage(1,10);
+		for(Item item:items) {
+			System.out.println(item);
+		}
+	}
 	
-
+	//复杂查询
+	//根据title和Content进行查询，交集
+	@Test
+	public void TestFindByJobnameAndContent() {
+		List<Item> list = this.jobService.findByJobnameAndContent("11122","11122");
+		for(Item item:list) {
+			System.out.println(item);
+		}
+	}
+	//根据title和Content进行查询，并集
+	@Test
+	public void TestFindByJobnameOrContent() {
+		List<Item> list = this.jobService.findByJobnameOrContent("11122","11123");
+		for(Item item:list) {
+			System.out.println(item);
+		}		
+	}
+	//根据title或者content和id的范围 进行分页查询
+	@Test
+	public void TestFindByJobnameAndContentAndIdBetween() {
+		Page<Item> items = this.jobService.findByJobnameAndContentAndIdBetween("Java工程师111","房租减半，水电全免111",12345610, 12345616,1,3);
+		for(Item item:items) {
+			System.out.println(item);
+		}
+	}
 }

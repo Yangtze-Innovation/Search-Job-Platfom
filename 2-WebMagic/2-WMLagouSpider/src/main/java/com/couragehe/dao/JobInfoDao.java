@@ -7,7 +7,7 @@ import com.couragehe.entity.JobInfo;
 import com.couragehe.util.DBUtils;
 import com.couragehe.util.UUIDUtils;
 
-public class JobPositionDao {
+public class JobInfoDao {
 
 	public static void addJobData(JobInfo job) {
 		Connection conn = DBUtils.getConnection();

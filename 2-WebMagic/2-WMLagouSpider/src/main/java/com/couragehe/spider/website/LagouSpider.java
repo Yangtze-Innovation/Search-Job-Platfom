@@ -14,7 +14,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.couragehe.dao.JobPositionDao;
+import com.couragehe.dao.JobInfoDao;
 import com.couragehe.entity.JobInfo;
 import com.couragehe.util.UUIDUtils;
 
@@ -135,7 +135,7 @@ public class LagouSpider {
 			job.setWebsite("拉勾");
 			System.out.println(job);
 			if(job.getJobname()!=null) {
-				JobPositionDao.addJobData(job);
+				JobInfoDao.addJobData(job);
 			}
 			
 		}
