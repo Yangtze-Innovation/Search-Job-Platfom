@@ -1,0 +1,16 @@
+{
+  "id": "1478034",
+  "name": "招聘",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5383657",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e782",
+      "unicode_decimal": 59266
+    }
+  ]
+}

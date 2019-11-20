@@ -61,7 +61,7 @@ grunt server#启动该服务
 
 &emsp;&emsp;若服务启动成功，则在浏览器输入`localhost:9100`即可显示下图
 
-![ElasticSearch-head显示.png](/Resource/images/ElasticSearch-head显示.png)
+![ElasticSearch-head显示.png](Resource/images/ElasticSearch-head显示.png)
 
 ## 三、安装成本地windows服务
 
