@@ -10,7 +10,7 @@
     <groupId>com.couragehe.souzhi</groupId>
     <artifactId>souzhi-crawler-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>souzhi-search-service</name>
+    <name>souzhi-crawler-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -29,24 +29,22 @@
             <artifactId>souzhi-service-util</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!-- SpringBoot 热部署插件       -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- WebMagic核心包 -->
+        <dependency>
+            <groupId>us.codecraft</groupId>
+            <artifactId>webmagic-core</artifactId>
+            <version>0.7.3</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>us.codecraft</groupId>
+            <artifactId>webmagic-extension</artifactId>
+            <version>0.7.3</version>
         </dependency>
     </dependencies>
 
