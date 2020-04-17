@@ -24,7 +24,7 @@ public class Application {
 	@Autowired
 	WebsiteProcessor websiteProcessor;
 
-	@Scheduled(cron = "0 05 05 * * *")
+//	@Scheduled(cron = "0 05 05 * * *")
 	@RequestMapping("test")
 	public void startTask() {	
 		//清空表单并进行爬取
@@ -39,7 +39,7 @@ public class Application {
 				//自定义结果处理、计算、持久化
 				.addPipeline(websitePipeline)
 				//开启线程抓取
-				.thread(50)
+				.thread(100)
 				//启动爬虫
 				.run();		
 	}

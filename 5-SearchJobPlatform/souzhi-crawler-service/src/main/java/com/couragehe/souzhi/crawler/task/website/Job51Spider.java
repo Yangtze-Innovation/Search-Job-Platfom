@@ -9,6 +9,8 @@ import com.couragehe.souzhi.crawler.mapper.PositionMapper;
 import com.couragehe.souzhi.utils.UUIDUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
@@ -27,7 +29,7 @@ import java.util.regex.Pattern;
  * @Date: 2020/4/9 10:39
  */
 @Component
-public class Job51Spider implements WebsiteSpider {
+public class Job51Spider extends WebsiteSpider {
 
     @Autowired
     private CompanyMapper companyMapper;
@@ -35,6 +37,8 @@ public class Job51Spider implements WebsiteSpider {
     PositionMapper positionMapper;
     @Autowired
     private PositionDetailMapper positionDetailMapper;
+    //日志输出
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
 
     /**
@@ -113,12 +117,17 @@ public class Job51Spider implements WebsiteSpider {
         String companyName = html.xpath("//div[@class=\"com_msg\"]/a/p/text()").toString();
         //公司图标
         String companyLogo = "http://r.soozhi.net/portal/201107/search/logo.gif";
+        String imgSrc = html.$("div.com_msg a img","src").toString();
+        if(imgSrc != null) companyLogo = imgSrc;
+/*
+        //如果没有imgbi标签 返回的就是null  空指针
         String imgString = html.xpath("//div[@class=\"com_msg\"]/a/img[@src]").toString();
         Matcher imgMatcher = Pattern.compile("(.*src=\")(.*)(\" w.*)").matcher(imgString);
         if (imgMatcher.find()) {
             companyLogo = imgMatcher.group(2);
             System.out.println(imgMatcher.group(2));
         }
+      */
         //公司规模
         String financeStage = Jsoup.parse(html.$("div.com_tag p.at").nodes().get(0).toString()).text();
         String companySize = Jsoup.parse(html.$("div.com_tag p.at").nodes().get(1).toString()).text();
@@ -176,16 +185,21 @@ public class Job51Spider implements WebsiteSpider {
         //先判断数据库中是否有该公司，
         Company company1 = new Company();
         company1.setCompanyName(company.getCompanyName());
-        company1 = companyMapper.selectOne(company1);
-        if(company1 == null){
+        List<Company>companyList = companyMapper.select(company1);
+        if (companyList.size() == 0) {
             //数据库中没有该公司
             companyMapper.insertSelective(company);
             position.setCompanyId(company.getId());
         }else {
-            position.setCompanyId(company1.getId());
+            position.setCompanyId(companyList.get(0).getId());
         }
         positionMapper.insertSelective(position);
         positionDetailMapper.insertSelective(positionDetail);
+
+        synchronized (positionMapper){
+            //爬取职务的计数器
+            logger.info("The number of position saved has {} ",++count);
+        }
 
     }
 }

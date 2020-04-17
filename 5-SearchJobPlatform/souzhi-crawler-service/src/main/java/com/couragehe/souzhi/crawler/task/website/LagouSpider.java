@@ -23,6 +23,8 @@ import org.apache.http.message.BasicNameValuePair;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
@@ -36,13 +38,15 @@ import us.codecraft.webmagic.selector.JsonPathSelector;
  *  @author CourageHe
  * */
 @Component
-public class LagouSpider implements WebsiteSpider {
+public class LagouSpider extends WebsiteSpider {
 	@Autowired
 	private CompanyMapper companyMapper;
 	@Autowired
 	private PositionMapper positionMapper;
 	@Autowired
 	private PositionDetailMapper positionDetailMapper;
+	//日志输出
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 
 	/**
@@ -271,17 +275,21 @@ public class LagouSpider implements WebsiteSpider {
 			//先判断数据库中是否有该公司，
 			Company company1 = new Company();
 			company1.setCompanyName(company.getCompanyName());
-			company1 = companyMapper.selectOne(company1);
-			if (company1 == null) {
+			List<Company>companyList = companyMapper.select(company1);
+			if (companyList.size() == 0) {
 				//数据库中没有该公司
 				companyMapper.insertSelective(company);
 				position.setCompanyId(company.getId());
 			} else {
-				position.setCompanyId(company1.getId());
+				position.setCompanyId(companyList.get(0).getId());
 			}
 			positionMapper.insertSelective(position);
 			positionDetailMapper.insertSelective(positionDetail);
 
+			synchronized (positionMapper){
+				//爬取职务的计数器
+				logger.info("The number of position saved has {} ",++count);
+			}
 		}
 	}
 

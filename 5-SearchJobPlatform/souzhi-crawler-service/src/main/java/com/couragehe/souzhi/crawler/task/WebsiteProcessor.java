@@ -17,7 +17,6 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 @Component("WebsiteProcessor")
 public class WebsiteProcessor implements PageProcessor{
-	private static long count = 0L;
 	//拉勾爬虫封装类
 	@Autowired
 	private LagouSpider lagouSpider;
@@ -28,14 +27,13 @@ public class WebsiteProcessor implements PageProcessor{
 	private Site site = Site.me()
 						.setRetryTimes(3)
 						.setSleepTime(200)
-						.setTimeOut(5000)
+						.setTimeOut(2000)
 						.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
 	
 	public void process(Page page) {
 		String url = page.getRequest().getUrl();
 		page.putField("url", url);
-		System.out.println(++count);
-		System.out.println(page.getRawText());
+//		System.out.println(page.getRawText());
 		if(Pattern.matches(".*lagou.*", page.getRequest().getUrl())) {
 			lagouSpider.addPageUrl(page);
 		}else if(Pattern.matches(".*51job.*", page.getRequest().getUrl())) {
