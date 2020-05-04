@@ -1,9 +1,10 @@
-package com.couragehe.souzhi.beans;
+package com.couragehe.souzhi.bean;
 
 
 import javax.persistence.Id;
+import java.io.Serializable;
 
-public class PositionDetail {
+public class PositionDetail implements Serializable {
   @Id
   private String id;
   private String positionId;

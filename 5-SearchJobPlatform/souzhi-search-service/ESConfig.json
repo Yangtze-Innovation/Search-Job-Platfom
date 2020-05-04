@@ -1,0 +1,84 @@
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+GET _analyze
+{
+  "analyzer": "ik_max_word",
+  "text": "我是程序员"
+} 
+//建立mapping
+PUT souzhi
+{
+  "mappings":{
+    "position":{
+        "properties":{
+          "id":{
+            "type":"keyword",
+            "index":false
+          },
+         "positionName":{
+            "type":"text",
+            "analyzer": "ik_max_word"
+          },
+          "companyId":{
+            "type":"keyword",
+            "index":false
+          },  
+         "companyName":{
+            "type":"text",
+            "analyzer": "ik_max_word"
+          },
+          "iskillLablesd":{
+            "type":"keyword",
+            "index":false
+          },  
+          "createTime":{
+            "type":"keyword",
+            "index":false
+          },
+          "formatCreateTime":{
+            "type":"keyword",
+            "index":false
+          },    
+          "workCity":{
+            "type":"keyword",
+          },  
+          "workDistrict":{
+            "type":"keyword",
+            "index":false
+          },   
+          "workSalary":{
+            "type":"keyword",
+          },  
+          "workYear":{
+            "type":"keyword",
+          },         
+          "workNature":{
+            "type":"keyword",
+          },   
+          "educationRequire":{
+            "type":"keyword",
+          },   
+          "positionAdvantage":{
+            "type":"keyword",
+            "index":false
+          },   
+          "isSchoolJob":{
+            "type":"long",
+          },   
+          "detailUrl":{
+            "type":"keyword",
+            "index":false
+          },   
+          "originWebsite":{
+            "type":"keyword",
+          }
+        }
+    }
+  }
+}
+
+#插入数据

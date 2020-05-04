@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜职</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+    <div class="out_body_box" >
+        <div id="logo_bird">
+            <a href="/"><img src="/images/logo.gif" style="width:194px;"></a>
+        </div>
+        <div class="search_out_box" >
+            <input type="text" id="search_input" onkeydown="press_enter(event)" oninput="souzhi_suggest()"placeholder="搜职 为小众而搜" autocomplete="off">
+            <button id="search_button" onclick="souzhi_search();">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.23 27.58" width="25.5" height="25.5">
+                    <line x1="16.84" y1="17.19" x2="25.81" y2="26.17" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"></line>
+                <path d="M567.8,1679.13A7.84,7.84,0,1,1,560,1687a7.85,7.85,0,0,1,7.84-7.84m0-3A10.84,10.84,0,1,0,578.64,1687a10.84,10.84,0,0,0-10.84-10.84h0Z" transform="translate(-556.96 -1676.13)" fill="#000"></path>
+                </svg>
+            </button>
+
+            <!-- 推荐搜索 -->
+            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" 
+                id="ui-id-1" tabindex="0" onmouseleave="sugges_animate(this)"
+                style="display: none; top: 61px;  width: 685px;">
+                <!-- <li class="ui-autocomplete-category" style="border-top: none;">职位</li> -->
+                <!-- <li class="ui-menu-item" role="presentation"><a id="ui-id-22" class="ui-corner-all" tabindex="-1"><span class="fl">java</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-23" class="ui-corner-all" tabindex="-1"><span class="fl">java后端</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-24" class="ui-corner-all" tabindex="-1"><span class="fl">java实习</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-25" class="ui-corner-all" tabindex="-1"><span class="fl">java开发工程师</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-26" class="ui-corner-all" tabindex="-1"><span class="fl">javaweb</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-27" class="ui-corner-all" tabindex="-1"><span class="fl">java架构师</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-28" class="ui-corner-all" tabindex="-1"><span class="fl">java开发</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-29" class="ui-corner-all" tabindex="-1"><span class="fl">java后端实习</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-30" class="ui-corner-all" tabindex="-1"><span class="fl">java大数据</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-31" class="ui-corner-all" tabindex="-1"><span class="fl">javascript</span><span class="fr">大于<i>450个</i>职位</span></a></li> -->
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div id="footer_out_box" style="position: fixed;margin-top:167px;">
+            <div class="tags">
+                <small>
+                    <a href="/about" target="_blank">鄂ICP备18013804号-3&nbsp;/&nbsp;公安网备34150102000224</a>
+                <br>
+                    <a href="#" onclick="alert('搜职 为小众而搜');">© 2020 搜职 souzhi.com</a>&nbsp;/&nbsp;<a href="mailto:couragehe520@gmail.com" target="_blank">违法举报</a>
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/index.js"></script>
+
+    <!-- Jquery核心库  -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>

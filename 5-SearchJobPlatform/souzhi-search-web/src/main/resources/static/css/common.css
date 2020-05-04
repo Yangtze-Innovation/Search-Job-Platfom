@@ -1,0 +1,271 @@
+/* 搜索框样式 */
+.out_body_box {
+    width:1080px;
+    margin-left:auto;
+    margin-right:auto;
+    min-width:1080px;
+    display:table;
+    padding-top:0px;
+	margin-top:0px;
+
+}
+#logo_bird {
+    margin:0px;width:100%;text-align:center;margin-top:150px;
+}
+
+
+.search_out_box {
+    z-index:402;
+    margin-left:auto;
+    margin-right:auto;
+    width:685px;
+    height:62px;
+    border:1px solid #d7d7d7;
+    margin-top:40px;
+	border-radius:3px;
+	position: relative;
+}
+
+#search_input {
+    color:#4a4a4a;
+    border:0px;
+    width:613px;
+    height:60px;
+    line-height:1.2;
+    font-size:20px;
+    outline:none;
+    padding-left:15px;
+    position:relative;
+    display: block;
+    -webkit-box-flex:1;
+    z-index:100;
+    float:left;
+    background:rgba(0,0,0,0);
+}
+#search_input[type=text] {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+#search_button {
+    border:0px;
+    background:#ffffff;
+    color:#989898;
+    line-height:2;
+    font-size:31px;
+    outline:none;
+    width:38px;
+    height:60px;
+    cursor:pointer;
+    float:right;
+    opacity:0.4;
+    margin-left:0px;
+    margin-right:10px;
+    align-items:flex-start;
+    text-align:center;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+#footer_out_box {
+    bottom:0px;
+    width:100%;
+    text-align:center;
+}
+.tags {
+    width:1080px;
+    margin-left:auto;
+    margin-right:auto;
+    min-width:1080px;
+    display:table;
+    height:72px;
+    padding-top:7px;
+    color:rgb(119,119,119);
+    opacity:0.35;
+}
+.tags a {
+    color:rgb(119,119,119);
+    padding:0px;
+    margin:0px;
+}
+
+/* 推荐列表样式 */
+
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default
+}
+
+.ui-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	outline: 0
+}
+
+.ui-menu .ui-menu {
+	margin-top: -3px;
+	position: absolute
+}
+
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0
+}
+
+.ui-menu .ui-menu-divider {
+	margin: 5px -2px 5px -2px;
+	height: 0;
+	font-size: 0;
+	line-height: 0
+}
+
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 6px;
+	line-height: 1.5;
+	min-height: 0;
+	font-weight: 400
+}
+
+.ui-menu .ui-menu-item a i {
+	color: #00b38a;
+	font-style: normal
+}
+
+.ui-menu .ui-menu-item a .fl {
+	float: left;
+}
+
+.ui-menu .ui-menu-item a .fr {
+	float: right;
+}
+
+.ui-menu .ui-menu-item a:hover i {
+	color: #fff
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus,.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: 400
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus i,.ui-menu .ui-menu-item a.ui-state-active i {
+	color: #fff
+}
+
+.ui-menu .ui-state-disabled {
+	font-weight: 400;
+	margin: .4em 0 .2em;
+	line-height: 1.5
+}
+
+.ui-menu .ui-state-disabled a {
+	cursor: default
+}
+
+.ui-menu-icons {
+	position: relative
+}
+
+.ui-menu-icons .ui-menu-item a {
+	position: relative;
+	padding-left: 2em
+}
+
+.ui-menu .ui-icon {
+	position: absolute;
+	top: .2em;
+	left: .2em
+}
+
+.ui-menu .ui-menu-icon {
+	position: static;
+	float: right
+}
+
+.ui-widget {
+	font-size: 1.1em
+}
+
+.ui-widget .ui-widget {
+	font-size: 1em
+}
+
+.ui-widget input,.ui-widget select,.ui-widget textarea,.ui-widget button {
+	font-family: "Microsoft Yahei",Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 1em
+}
+
+.ui-widget-content {
+	border: 2px solid #c8e6de;
+	background: #fff;
+	color: #555
+}
+
+.ui-widget-content a {
+	color: #555
+}
+
+.ui-widget-header {
+	background: #91cebe;
+	color: #fff
+}
+
+.ui-widget-header a {
+	color: #fff
+}
+
+.ui-widget-header a i {
+	color: #fff
+}
+
+.ui-autocomplete {
+	width: 488px;
+	background: #fff!important;
+	position: absolute;
+	z-index: 150;
+	-webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.08);
+	-moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.08);
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.08);
+	border: 0;
+	border-radius: 3px;
+}
+
+.ui-autocomplete-category {
+	font-size: 16px;
+	color: #999;
+	width: 50px;
+	position: absolute;
+	z-index: 11;
+	right: 0;
+	text-align: center;
+	border-top: 1px dashed #e5e5e5;
+	padding: 8px 0;
+}
+
+.ui-menu-item {
+	*width: 439px;
+	vertical-align: middle;
+	position: relative;
+	margin: 0;
+	margin-right: 50px!important;
+	background: #fff;
+	border-right: 1px dashed #ededed;
+}
+
+.ui-menu .ui-menu-item a {
+	display: block;
+	overflow: hidden;
+	padding: 8px 17px;
+}
+.ui-autocomplete .ui-menu-item a:hover {
+    background: #00b38a!important;
+}
+
+

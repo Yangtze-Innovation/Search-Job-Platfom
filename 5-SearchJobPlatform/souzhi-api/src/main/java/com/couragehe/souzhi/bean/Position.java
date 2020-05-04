@@ -1,7 +1,9 @@
-package com.couragehe.souzhi.beans;
+package com.couragehe.souzhi.bean;
 
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
 
   private String id;
   private String positionName;

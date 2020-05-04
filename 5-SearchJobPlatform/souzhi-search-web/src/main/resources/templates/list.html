@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>招聘</title>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <style>
+        .out_body_box {
+            margin-top: 30px;
+        }
+        #logo_bird {
+            width: 20%;
+            margin-top: 0px;
+            margin-left: 90px;/*置中*/
+            display: inline-block;
+        }
+        .search_out_box {
+            display: inline-block;
+            margin-top: 0;
+        }
+        #footer_out_box {
+            position: unset;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="header" style="display: none;">
+        <ul >
+            <li><a href="javascript:void(0);">长大招聘</a></li>
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li><a href="javascript:void(0);">时间</a></li>
+            <li><a href="javascript:void(0);">客服反馈</a></li>
+            <li><a href="javascript:void(0);">联系我们</a></li>
+        </ul>
+    </div>
+    <div class="out_body_box" >
+        <div id="logo_bird">
+            <a href="/"><img src="/images/logo.gif" style="width:194px;vertical-align: unset;"></a>
+        </div>
+        <div class="search_out_box" >
+            <input type="text" id="search_input" th:value="${keyword}" onkeydown="press_enter(event)" oninput="souzhi_suggest()"placeholder="搜职 为小众而搜" autocomplete="off">
+            <button id="search_button" onclick="souzhi_search();">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.23 27.58" width="25.5" height="25.5">
+                    <line x1="16.84" y1="17.19" x2="25.81" y2="26.17" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"></line>
+                <path d="M567.8,1679.13A7.84,7.84,0,1,1,560,1687a7.85,7.85,0,0,1,7.84-7.84m0-3A10.84,10.84,0,1,0,578.64,1687a10.84,10.84,0,0,0-10.84-10.84h0Z" transform="translate(-556.96 -1676.13)" fill="#000"></path>
+                </svg>
+            </button>
+
+            <!-- 推荐搜索 -->
+            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" 
+                id="ui-id-1" tabindex="0" onmouseleave="sugges_animate(this)"
+                style="display: none; top: 61px;  width: 685px;">
+                <!-- <li class="ui-autocomplete-category" style="border-top: none;">职位</li> -->
+                <!-- <li class="ui-menu-item" role="presentation"><a id="ui-id-22" class="ui-corner-all" tabindex="-1"><span class="fl">java</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-23" class="ui-corner-all" tabindex="-1"><span class="fl">java后端</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-24" class="ui-corner-all" tabindex="-1"><span class="fl">java实习</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-25" class="ui-corner-all" tabindex="-1"><span class="fl">java开发工程师</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-26" class="ui-corner-all" tabindex="-1"><span class="fl">javaweb</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-27" class="ui-corner-all" tabindex="-1"><span class="fl">java架构师</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-28" class="ui-corner-all" tabindex="-1"><span class="fl">java开发</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-29" class="ui-corner-all" tabindex="-1"><span class="fl">java后端实习</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-30" class="ui-corner-all" tabindex="-1"><span class="fl">java大数据</span><span class="fr">大于<i>450个</i>职位</span></a></li>
+                <li class="ui-menu-item" role="presentation"><a id="ui-id-31" class="ui-corner-all" tabindex="-1"><span class="fl">javascript</span><span class="fr">大于<i>450个</i>职位</span></a></li> -->
+            </ul>
+        
+        
+        </div>
+                   <!-- 热门搜索推荐 -->
+        <div class="sub">   
+        <ul>
+            <li>热门搜索：</li>
+            <li><a href="javascript:void(0)" onclick="souzhi_searchOfHot(this)">java</a></li>
+            <li><a href="javascript:void(0)" onclick="souzhi_searchOfHot(this)">JavaScript</a></li>
+            <li><a href="javascript:void(0)" onclick="souzhi_searchOfHot(this)">人工智能</a></li>
+            <li><a href="javascript:void(0)" onclick="souzhi_searchOfHot(this)">大数据</a></li>
+            <li><a href="javascript:void(0)" onclick="souzhi_searchOfHot(this)">Linux</a></li>
+        </ul>
+    </div>
+    </div>
+
+    
+    <div class="shaixuan">
+        <ul class="element">
+            <li>
+                <ul class="item city" name="workCity">
+                    <li>工作地点：</li>
+                    <li class="active"><a href="javascript:void(0);" name="null">全国</a></li>
+                    <li><a href="javascript:void(0);" name="北京">北京</a></li>
+                    <li><a href="javascript:void(0);" name="上海">上海</a></li>
+                    <li><a href="javascript:void(0);" name="深圳">深圳</a></li>
+                    <li><a href="javascript:void(0);" name="广州">广州</a></li>
+                    <li><a href="javascript:void(0);" name="杭州">杭州</a></li>
+                    <li><a href="javascript:void(0);" name="成都">成都</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="item" name="companySize">
+                    <li>公司规模：</li>
+                    <li class="active"><a href="javascript:void(0);" name="null">不限</a></li>
+                    <li><a href="javascript:void(0);" name="null">少于15人</a></li>
+                    <li><a href="javascript:void(0);" name="null">15-50人</a></li>
+                    <li><a href="javascript:void(0);" name="null">50-150人</a></li>
+                    <li><a href="javascript:void(0);" name="null">150-500人</a></li>
+                    <li><a href="javascript:void(0);" name="null">500-2000人</a></li>
+                    <li><a href="javascript:void(0);" name="null">2000人以上</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="item" name="workYear">
+                    <li>工作经验：</li>
+                    <li class="active"><a href="javascript:void(0);" name="null">不限</a></li>
+                    <li><a href="javascript:void(0);" name="应届毕业生">应届毕业生</a></li>
+                    <li><a href="javascript:void(0);" name="3年及以下">3年及以下</a></li>
+                    <li><a href="javascript:void(0);" name="3">3-5年</a></li>
+                    <li><a href="javascript:void(0);" name="5">5-10年</a></li>
+                    <li><a href="javascript:void(0);" name="10年以上">10年以上</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="item" name="educationRequire">
+                    <li>学历要求：</li>
+                    <li class="active"><a href="javascript:void(0);" name="null" >不限</a></li>
+                    <li><a href="javascript:void(0);" name="大专">大专</a></li>
+                    <li><a href="javascript:void(0);" name="本科">本科</a></li>
+                    <li><a href="javascript:void(0);" name="硕士">硕士</a></li>
+                    <li><a href="javascript:void(0);" name="博士">博士</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="item" name="workNature">
+                    <li>工作性质：</li>
+                    <li class="active"><a href="javascript:void(0);" name= "null">不限</a></li>
+                    <li><a href="javascript:void(0);" name= "全职">全职</a></li>
+                    <li><a href="javascript:void(0);" name= "实习">实习</a></li>
+                </ul>
+            </li>
+            <li>
+                <ul class="item" name="originWebsite">
+                    <li>来源网站：</li>
+                    <li class="active"><a href="javascript:void(0);" name= "null">不限</a></li>
+                    <li><a href="javascript:void(0);" name= "51job">51JOB</a></li>
+                    <li><a href="javascript:void(0);" name= "拉勾">拉勾网</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="btn-collapse-wrapper">
+            <a rel="nofollow" class="btn-collapse" title="点击收起筛选项" href="javascript:void(0);" onclick="shaixuanAnimate()"></a>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="part" th:each="positon:${positonList}">
+            <span class="p1"><a href="javascript:void(0);" th:href="@{${positon?.detailUrl}}">Java工程师（2020校招）</a></span>
+            <span class="p2">更多</span>
+            <span class="p3" th:text="${positon?.workSalary}">10K-16K</span>
+            <span class="p4" th:text="|${positon?.workCity} / ${positon?.workYear} / ${positon?.educationRequire} / ${positon?.workNature}|">上海 / 经验应届毕业生 / 本科及以上 / 全职</span>
+            <div class="hr"></div>
+            <div>
+                网站来源: <span th:text="${positon?.originWebsite}">拉勾网</span>
+            </div>
+            <div class="p22">
+                招聘信息:
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+            </div>
+        </div>
+        <div class="part">
+            <span class="p1"><a href="javascript:void(0);">Java工程师（2020校招）</a></span>
+            <span class="p2">更多</span>
+            <span class="p3">10K-16K</span>
+            <span class="p4">上海 / 经验应届毕业生 / 本科及以上 / 全职</span>
+            <div class="hr"></div>
+            <div>
+                网站来源: <span>拉勾网</span>
+            </div>
+            <div class="p22">
+                招聘信息:
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+            </div>
+        </div>
+        <div class="part">
+            <span class="p1"><a href="javascript:void(0);">Java工程师（2020校招）</a></span>
+            <span class="p2">更多</span>
+            <span class="p3">10K-16K</span>
+            <span class="p4">上海 / 经验应届毕业生 / 本科及以上 / 全职</span>
+            <div class="hr"></div>
+            <div>
+                网站来源: <span>拉勾网</span>
+            </div>
+            <div class="p22">
+                招聘信息:
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+            </div>
+        </div>  
+    </div>
+    <div class="item_con_pager">
+        <div class="pager_container">
+            <a rel="nofollow" href="javascript:void(0);" class="page_no" onclick="page_pre()">上一页</a>
+  
+            <a href="javascript:void(0);" class="page_no" onclick="page_next()" >下一页</a>
+        </div>
+    </div>
+   
+       
+  
+    <footer>
+        <div id="footer_out_box" style="margin-top:167px;">
+            <div class="tags">
+                <small>
+                    <a href="/about" target="_blank">鄂ICP备18013804号-3&nbsp;/&nbsp;公安网备34150102000224</a>
+                <br>
+                    <a href="javascript:void(0);" onclick="alert('搜职 为小众而搜');">© 2020 搜职 souzhi.com</a>&nbsp;/&nbsp;<a href="mailto:couragehe520@gmail.com" target="_blank">违法举报</a>
+                </small>
+            </div>
+        </div>
+    </footer>
+
+
+
+     <!-- Jquery核心库  -->
+     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <!-- 通用搜索脚本引入 -->
+    <script src="/js/common.js"></script>
+    <!-- 列表脚本引入 -->
+    <script src="/js/list.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        total = [[${total}]];
+    </script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

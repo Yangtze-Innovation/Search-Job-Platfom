@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.couragehe.souzhi.search.mapper.PositionMapper">
+    <select id="selectAllUser" resultType="com.couragehe.souzhi.bean.Position">
+        select * from ums_member
+    </select>
+
+    <select id="selectPositionListASLimit" resultMap="selectPositionListASLimitByMap">
+        SELECT * FROM position LIMIT #{from},#{size};
+    </select>
+    <resultMap id="selectPositionListASLimitByMap" type="com.couragehe.souzhi.bean.Position" autoMapping="true">
+    </resultMap>
+</mapper>
+
+
